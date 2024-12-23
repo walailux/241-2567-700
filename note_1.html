@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ส่วนนี้คือ CSS */
+        /* ใช้สำหรับแต่ง (id class) */
+        @font-face {
+            font-family: 'Kanit';
+            src: url('Kanit-Regular.ttf');
+        }
+
+        body {
+            font-family: 'Kanit';
+            background-color: rgb(255, 253, 220);
+            margin: 0;
+            padding: 0;
+        }
+
+        #register {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            font-weight: 800;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 10px;
+            background-color: rgb(255, 255, 152);
+            padding-left: 20px;
+            border: 3px solid black;
+
+        }
+
+        .header-form {
+            font-weight: 800;
+        }
+
+        .form {
+            display: block;
+        }
+
+        .gender {
+            display: flex flex-direction: row-reverse;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .image {
+            background-image: url(https://images.unsplash.com/photo-1622798023168-76a8f3b1f24e?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            height: 150px;
+            weight: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+    </style>
+</head>
+<body>
+    <!-- form -->
+    <div class="image"></div>
+
+    <div class="left">
+        <img src="https://media1.tenor.com/m/8G1t26JRYskAAAAd/hi-black-cat.gif"
+             alt="Hi Black Cat GIF"
+             width="100">
+    </div>
+    
+
+    <div>korbor bibi</div>
+
+    <div class="left">
+        Test
+    </div>
+
+    <div id="register">Regirter form</div>
+    <span class="header-form">ชื่อ</span>
+    <input class="form" type="text">
+    <span class="header-form">นามสกุล</span>
+
+
+    <input class="form" type="text"> <br>
+    อายุ <input type="number" min="0" max="100">
+    <div class="gender">
+        เพศ
+        <div>
+            <input name="gender" type="radio"> ชาย
+        </div>
+        <div>
+            <input name="gender" type="radio"> หญิง
+        </div>
+        <div>
+            <input name="gender" type="radio"> อื่นๆ
+        </div>
+    </div>
+    <div>
+        งานอดิเรก
+        <div>
+            <input name="hobby" type="checkbox"> อ่านหนังสือ
+        </div>
+        <div>
+            <input name="hobby" type="checkbox"> ดูหนัง
+        </div>
+        <div>
+            <input name="hobby" type="checkbox"> ฟังเพลง
+        </div>
+    </div>
+    <div>
+        คำอธิบาย
+        <textarea></textarea>
+    </div>
+    <div>
+        <button>ส่งข้อมูล</button>
+    </div>
+</body>
+
+</html>

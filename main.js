@@ -331,6 +331,6 @@ let highscore_student = students.filter((s) =>{
     if(s.score >= 80){
         return true;
     }
-})    
+}) 
 console.log('student:',student);
 console.log('student:',highscore_student);

@@ -334,3 +334,7 @@ let highscore_student = students.filter((s) =>{
 }) 
 console.log('student:',student);
 console.log('student:',highscore_student);
+
+let ages = [10,20,30,40,50];
+ages.push(60);
+console.log(ages);

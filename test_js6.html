@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+</head>
+<body>
+    <div 
+        onmouseover="overitem()"
+        onmouseup="upitem()"
+        onmousedown="downitem()">
+        Click here
+    </div>
+
+    <script>
+        function overitem() {
+            console.log('mouse over');
+        }
+
+        function upitem() {
+            console.log('mouse up');
+        }
+
+        function downitem() {
+            console.log('mouse down');
+        }
+    </script>
+</body>
+</html>

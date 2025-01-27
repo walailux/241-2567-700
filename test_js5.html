@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Firstname</title>
+</head>
+<body>
+    ชื่อ <input type="text" name="firstname" onkeyup="changeFirstName()">
+    <script>
+        function changeFirstName() {
+            // เลือก input ที่มี name="firstname"
+            let firstnameDOM = document.querySelector('input[name=firstname]');
+            // แสดงค่า value ของ input
+            console.log('change firstname:', firstnameDOM.value);
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         /* ส่วนนี้คือ CSS */
@@ -31,58 +31,61 @@
         }
 
         .gender {
-            display: flex flex-direction: row-reverse;
+            display: flex;
+            flex-direction: row-reverse;
         }
+
         .box {
-            width: 100px;
             background-color: rgb(153, 153, 252);
             height: 20px;
             width: 100vw;
         }
     </style>
 </head>
+
 <body>
     <!-- form -->
-    <div class="box">
+    <div class="box"></div>
 
-    </div>
-
-    <div id="register">Regirter form</div>
+    <div id="register">Register form</div>
     <span class="header-form">ชื่อ</span>
     <input class="form" type="text">
     <span class="header-form">นามสกุล</span>
-
-
     <input class="form" type="text"> <br>
+
     อายุ <input type="number" min="0" max="100">
+
     <div class="gender">
         เพศ
         <div>
-            <input name="gender" type="radio"> ชาย
+            <input name="gender" type="radio" value="male"> ชาย
         </div>
         <div>
-            <input name="gender" type="radio"> หญิง
+            <input name="gender" type="radio" value="female"> หญิง
         </div>
         <div>
-            <input name="gender" type="radio"> อื่นๆ
+            <input name="gender" type="radio" value="other"> อื่นๆ
         </div>
     </div>
+
     <div>
         งานอดิเรก
         <div>
-            <input name="hobby" type="checkbox"> อ่านหนังสือ
+            <input name="hobby" type="checkbox" value="reading"> อ่านหนังสือ
         </div>
         <div>
-            <input name="hobby" type="checkbox"> ดูหนัง
+            <input name="hobby" type="checkbox" value="movies"> ดูหนัง
         </div>
         <div>
-            <input name="hobby" type="checkbox"> ฟังเพลง
+            <input name="hobby" type="checkbox" value="music"> ฟังเพลง
         </div>
     </div>
+
     <div>
         คำอธิบาย
-        <textarea></textarea>
+        <textarea cols="30" rows="5"></textarea>
     </div>
+
     <div>
         <button>ส่งข้อมูล</button>
     </div>

@@ -53,6 +53,26 @@
      height: 30px;
  }
 
+ .message {
+     margin-top: 20px;
+     padding: 10px;
+     border: 1px solid #8d8d8d;
+     background-color: #f2f2f2;
+     display: none;
+ }
+
+ .message.success {
+     color: rgb(8, 128, 8);
+     background-color: rgb(210, 255, 203);
+     display: block;
+ }
+
+.message.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(253, 74, 74);
+    display: block;
+}
+
  @media screen and (max-width: 768px) {
     .flex {
         flex-direction: column;

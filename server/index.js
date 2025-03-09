@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const app = express();
 const cors = require('cors');
+const e = require('express');
 const port = 8000;
 app.use(bodyParser.json());
 app.use(cors());
@@ -30,6 +31,26 @@ const initMySQL = async () => {
    5.DELETE /users/:id สำหรับลบ users รายคน (ตาม id ที่บันทึกเข้าไป) 
 */
 
+const validateData = (userData) => {
+    let errors = [];
+    if (!userData.firstName) {
+        errors.push('กรุณากรอกชื่อ');
+    }
+    if (!userData.lastName) {
+        errors.push('กรุณากรอกนามสกุล');
+    }
+    if (!userData.age) {
+        errors.push('กรุณากรอกอายุ');
+    }
+    if (!userData.gender) {
+        errors.push('กรุณาเลือกเพศ');
+    }
+    if (!userData.interests) {
+        errors.push('กรุณาเลือกงานอดิเรก');
+    }
+    return errors;
+};
+
 // path = GET /users สำหรับ get users ทั้งหมดที่บันทึกไว้
 app.get('/users', async (req, res) => {
     try {
@@ -43,17 +64,26 @@ app.get('/users', async (req, res) => {
 // path = POST /users สำหรับสร้าง users ใหม่บันทึกเข้าไป
 app.post('/users', async (req, res) => {
     try {
-       let user = req.body;
-       const [result] = await conn.query('INSERT INTO users SET ?', [user]);
-       res.json({
-           message: 'Create user successfully',
-           data: result[0]
-       });
+        let user = req.body;
+        const errors = validateData(user);
+        if (errors.length > 0) {
+            throw {
+                message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+                errors: errors
+            };
+        }
+        const [result] = await conn.query('INSERT INTO users SET ?', [user]);
+        res.json({
+            message: 'Create user successfully',
+            data: result[0]
+        });
     } catch (error) {
-        console.error("Error: ", error.message);
-        res.status(500).json({ 
-            message: "something went wrong",
-            errorMassage: error.message
+        const errorMassage = error.message || "something went wrong";
+        const errors = error.errors || [];
+        console.error("Error message: ", error.message);
+        res.status(500).json({
+            message: errorMassage,
+            errors: errors
         });
     }
 });
@@ -71,7 +101,7 @@ app.get('/users/:id', async (req, res) => {
     } catch (error) {
         console.error("Error: ", error.message);
         let statusCode = error.statusCode || 500;
-        res.status(500).json({ 
+        res.status(500).json({
             message: "something went wrong",
             errorMassage: error.message
         });
@@ -85,19 +115,19 @@ app.put('/users/:id', async (req, res) => {
     try {
         let user = req.body;
         const [result] = await conn.query(
-            'UPDATE users SET ? WHERE id = ?', 
+            'UPDATE users SET ? WHERE id = ?',
             [updateUser, id]);
         res.json({
             message: 'Update user successfully',
             data: result[0]
         });
-     } catch (error) {
-         console.error("Error: ", error.message);
-         res.status(500).json({ 
-             message: "something went wrong",
-             errorMassage: error.message
-         });
-     }
+    } catch (error) {
+        console.error("Error: ", error.message);
+        res.status(500).json({
+            message: "something went wrong",
+            errorMassage: error.message
+        });
+    }
 });
 
 // path = DELETE /users/:id ใช้สำหรับลบข้อมูล user รายคน (ตาม id ที่บันทึกเข้าไป)
@@ -109,13 +139,13 @@ app.delete('/users/:id', async (req, res) => {
             message: 'Delete user successfully',
             data: results
         });
-     } catch (error) {
-         console.error("Error: ", error.message);
-         res.status(500).json({ 
-             message: "something went wrong",
-             errorMassage: error.message
-         });
-     }
+    } catch (error) {
+        console.error("Error: ", error.message);
+        res.status(500).json({
+            message: "something went wrong",
+            errorMassage: error.message
+        });
+    }
 });
 
 app.listen(port, async () => {

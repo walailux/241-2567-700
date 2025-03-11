@@ -126,7 +126,7 @@ const submitData = async () => {
         messageDOM.innerText = message
         messageDOM.className = "message sussess"
 
-        const response = await axios.post(`${BASE_URL}/users`, userData)
+        const response = await axios.put(`${BASE_URL}/users`, userData)
         console.log('response', response.data);
         messageDOM.innerText = "บันทึกข้อมูลเรียบร้อย"
         messageDOM.className = "message sussess"

@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style3.css">
 </head>
 <body>
-    <a href="index_form.html">Back to register</a>
-    User management page
-    <div id="user"></div>
-<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-<script src="user.js"></script>
+    <div class="container">
+        <button class="back-button" onclick="location.href='index_form.html'">
+            <i class="fas fa-arrow-left"></i> Back to Register
+        </button>
+        <h1>User Management</h1>
+        <div id="user">Loading users...</div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="user.js"></script>
 </body>
 </html>

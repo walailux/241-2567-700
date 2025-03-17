@@ -1,0 +1,150 @@
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+header:hover {
+    background-color: #460d29;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #B6922E;
+}
+
+#hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #DB468D;
+    color: white;
+    transition: background-color 0.5s;
+}
+
+#hero:hover {
+    background-color: #a82464;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #B6922E;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.btn:hover, .btn:active {
+    background-color: #866b21;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+    background: white;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #DB468D;
+    color: white;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+footer:hover {
+    background-color: #a82464;
+}
+
+.centered-image {
+    max-width: 70%;          
+    height: auto;           
+    display: block;          
+    margin-left: auto;       
+    margin-right: auto;      
+    margin-top: 0;           
+    position: relative;      
+    top: 0;                  
+  }
+
+.centered-image img {
+    max-width: 100%;        
+    height: auto;          
+}
+
+.contacts-image {
+    max-width: 30%;          
+    height: auto;           
+    display: block;          
+    margin-left: auto;       
+    margin-right: auto;      
+    margin-top: 0;           
+    position: relative;      
+    top: 0;
+}
+
+.contacts-image img {
+    max-width: 100%;        
+    height: auto;          
+}

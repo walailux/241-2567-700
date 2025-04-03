@@ -190,3 +190,33 @@ select[name="education"] option {
     max-width: 100%;        
     height: auto;          
 }
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.message.success {
+    color: green;          /* สีข้อความ */
+    font-weight: bold;     /* ตัวหนา */
+    font-size: 22px;       /* ขนาดฟอนต์ */
+    text-align: center;    /* จัดข้อความให้อยู่กลาง */
+    display: flex;         /* ใช้ Flexbox */
+    justify-content: center;
+    align-items: center;
+}
+
+.message.danger {
+    color: red;             /* สีข้อความ */
+    font-weight: bold;      /* ตัวหนา */
+    font-size: 22px;        /* ขนาดฟอนต์ */
+    text-align: center;     /* จัดให้อยู่ตรงกลาง */
+    display: flex;          /* ใช้ Flexbox */
+    justify-content: center;
+    align-items: center;
+}

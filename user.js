@@ -15,15 +15,23 @@ const loadData = async () => {
     const userDOM = document.getElementById('user');
 
     //2. นำ user ทั้งหมด โหลดกลับเข้าไปใน html
-    let htmlData = '<div>';
+    //สร้างแถวของข้อมูลในตาราง
+    let htmlData = '';
     for (let i = 0; i < response.data.length; i++) {
-        let user = response.data[i];
-        htmlData += `<div> 
-        ${user.id} ${user.firstname} ${user.lastname}
-        <a href='index_form.html?id=${user.id}'><button>Edit</button></a>
-        <button class='delete' data-id='${user.id}'>Delete</button> 
-        </div>`;
+        const user = response.data[i];
+        htmlData += `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.firstname}</td>
+                <td>${user.lastname}</td>
+                <td>
+                    <a href='index_form.html?id=${user.id}'><button>Edit</button></a>
+                    <button class='delete' data-id='${user.id}'>Delete</button>
+                </td>
+            </tr>
+        `;
     }
+
     htmlData += '</div>';
     userDOM.innerHTML = htmlData;
 

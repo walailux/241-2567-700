@@ -10,14 +10,18 @@
 </head>
 
 <body>
+    <video autoplay loop muted playsinline id="background-video">
+        <source src="background.mp4" type="video/mp4">
+        เบราว์เซอร์ของคุณไม่รองรับวิดีโอ
+    </video>
     <div class="container">
         <div class="centered-image">
             <img src="WS_3_logo.png" alt="register">
-        </div> 
-        <div class="header">กรอกข้อมูลเพื่อลงทะเบียน</div>         
+        </div>
+        <div class="header">กรอกข้อมูลเพื่อลงทะเบียน</div>
         <div class="flex form-input">
             <div class="header-form">ชื่อ <span class="required">*</span></div>
-            <input class="form" name="firstname" type="text" placeholder="กรอกชื่อของคุณ" required>
+            <input class="form" name="firstname" type="text" placeholder="กรอกชื่อจริงของคุณ" required>
         </div>
         <div class="flex form-input">
             <div class="header-form">นามสกุล <span class="required">*</span></div>
@@ -33,7 +37,7 @@
         </div>
         <div class="flex form-input">
             <div class="header-form">วันเกิด <span class="required">*</span></div>
-            <input class="form" name="birthdate" type="text" placeholder="กรอกวันเกิดของคุณ (DD/MM/YYYY)" required>
+            <input class="form" name="birthdate" type="date" placeholder="กรอกวันเกิดของคุณ (DD/MM/YYYY)" required>
         </div>
         <div class="flex form-input">
             <div class="header-form">อายุ <span class="required">*</span></div>
@@ -66,20 +70,15 @@
             <input class="form" name="major" type="text" placeholder="กรอกสาขาวิชาที่สนใจ" required>
         </div>
         <div class="form-input">
-            <div class="header-form">สิ่งที่คุณสนใจ</div>
-            <textarea name="description" placeholder="เขียนสิ่งที่คุณสนใจและบ่งบอกความเป็นตัวคุณ"></textarea>
+            <div class="header-form">คำอธิบายเพิ่มเติม <span class="required">*</span></div>
+            <textarea name="description" placeholder="เขียนคำอธิบายเพิ่มเติมเกี่ยวกับตัวคุณ
+        หมายเหตุ: หากไม่มีให้ใส่ -"></textarea>
         </div>
-        <div class="form-input">
-            <div class="header-form">คำอธิบายเพิ่มเติม</div>
-            <textarea name="description" placeholder="เขียนคำอธิบายเพิ่มเติมเกี่ยวกับตัวคุณ"></textarea>
-        </div>
-        
         <div id="message" class="message"></div>
-        
         <div class="center">
             <button onclick="submitData()" class="button">ส่งข้อมูล</button>
         </div>
-        
+
         <div class="button-group">
             <a href="website.html" class="button">กลับไปหน้าเว็บหลัก</a>
             <a href="user.html" class="button">ไปยังระบบจัดการผู้ใช้</a>
@@ -89,4 +88,5 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>

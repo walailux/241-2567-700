@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style3.css">
 </head>
+
 <body>
+    <video autoplay loop muted playsinline id="background-video">
+        <source src="background2.mp4" type="video/mp4">
+        เบราว์เซอร์ของคุณไม่รองรับวิดีโอ
+    </video>
+
     <div class="container">
+        <img src="WS_2_logo.png" alt="user-management" class="centered-image">
         <button class="back-button" onclick="location.href='index_form.html'">
             <i class="fas fa-arrow-left"></i> Back to Register
         </button>
+
         <h1>User Management</h1>
-        <div id="user">Loading users...</div>
+
+        <!-- User Table -->
+        <table id="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="user">
+                <tr>
+                    <td colspan="4">Loading users...</td>
+                </tr>
+            </tbody>
+        </table>        
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="user.js"></script>
 </body>
+
 </html>

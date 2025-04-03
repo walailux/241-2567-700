@@ -22,7 +22,7 @@ window.onload = async () => {
             document.querySelector("input[name=email]").value = user.email;
             document.querySelector("input[name=phone]").value = user.phone;
             document.querySelector("input[name=age]").value = user.age;
-            document.querySelector("input[name=birthdate]").value = user.birthdate;
+            document.querySelector("input[name=birthdate]").value = user.birthdate ? new Date(user.birthdate).toISOString().split('T')[0] : '';
             document.querySelector("textarea[name='address']").value = user.address;
             document.querySelector("select[name=education]").value = user.education;
             document.querySelector("input[name=major]").value = user.major;
@@ -33,14 +33,6 @@ window.onload = async () => {
             for (let i = 0; i < genderDOMs.length; i++) {
                 if (genderDOMs[i].value === user.gender) {
                     genderDOMs[i].checked = true;
-                }
-            }
-
-            // Set interests
-            let interestDOMs = document.querySelectorAll("input[name=interest]");
-            for (let i = 0; i < interestDOMs.length; i++) {
-                if (user.interests.includes(interestDOMs[i].value)) {
-                    interestDOMs[i].checked = true;
                 }
             }
 
@@ -56,7 +48,7 @@ const validateData = (userData) => {
     if (!userData.lastName) errors.push('กรุณากรอกนามสกุล');
     if (!userData.email) errors.push('กรุณากรอกอีเมล');
     if (!userData.phone) errors.push('กรุณากรอกเบอร์โทรศัพท์');
-    if (!userData.birthdate) errors.push('กรุณากรอกวันเกิด');
+    if (!userData.birthdate) errors.push('กรุณากรอกวันเกิดในรูปแบบ YYYY-MM-DD');
     if (!userData.age) errors.push('กรุณากรอกอายุ');
     if (!userData.gender) errors.push('กรุณาเลือกเพศ');
     if (!userData.address) errors.push('กรุณากรอกที่อยู่');
@@ -65,7 +57,6 @@ const validateData = (userData) => {
     return errors;
 };
 
-
 const submitData = async () => {
     let firstNameDOM = document.querySelector("input[name=firstname]");
     let lastNameDOM = document.querySelector("input[name=lastname]");
@@ -73,19 +64,14 @@ const submitData = async () => {
     let phoneDOM = document.querySelector("input[name=phone]");
     let ageDOM = document.querySelector("input[name=age]");
     let genderDOM = document.querySelector("input[name=gender]:checked") || {};
-    let interestDOMs = document.querySelectorAll("input[name=interest]:checked") || {};
     let addressDOM = document.querySelector("textarea[name='address']");
     let educationDOM = document.querySelector("select[name='education']");
     let majorDOM = document.querySelector("input[name=major]");
     let descriptionDOM = document.querySelector("textarea[name='description']");
-    
     let messageDOM = document.getElementById('message');
-    
+
     try {
-        let interests = [];
-        for (let i = 0; i < interestDOMs.length; i++) {
-            interests.push(interestDOMs[i].value);
-        }
+        let birthdateDOM = document.querySelector("input[name=birthdate]");
 
         let userData = {
             firstName: firstNameDOM.value,
@@ -93,18 +79,20 @@ const submitData = async () => {
             email: emailDOM.value,
             phone: phoneDOM.value,
             age: ageDOM.value,
+            birthdate: birthdateDOM.value, 
             gender: genderDOM.value,
-            interests: interests,
             address: addressDOM.value,
             education: educationDOM.value,
             major: majorDOM.value,
             description: descriptionDOM.value
         };
 
+
         const errors = validateData(userData);
         if (errors.length > 0) {
             throw {
                 message: "กรุณากรอกข้อมูลให้ครบถ้วน",
+                message: " ",
                 errors: errors
             };
         }
@@ -129,7 +117,7 @@ const submitData = async () => {
         let htmlData = '<div>';
         htmlData += '<div>' + error.message + '</div>';
         htmlData += '<ul>';
-        
+
         for (let i = 0; i < error.errors.length; i++) {
             htmlData += '<li>' + error.errors[i] + '</li>';
         }

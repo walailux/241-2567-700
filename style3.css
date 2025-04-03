@@ -68,26 +68,17 @@ button {
     transition: 0.3s ease-in-out;
 }
 
-button.edit {
-    background-color: #DB468D; 
-    color: white;
-}
-
-button.edit:hover {
-    background-color: #a82464; 
-}
-
 button.delete {
-    background-color: #B6922E; 
+    background-color: #d23838; 
     color: white;
 }
 
 button.delete:hover {
-    background-color: #866b21; 
+    background-color: #8a1c1c; 
 }
 
 .centered-image {
-    max-width: 70%;
+    max-width: 60%;
     height: auto;
     display: block;
     margin: 10px auto;
@@ -125,3 +116,58 @@ button.delete:hover {
 .back-button:hover {
     background-color: #a82464; 
 }
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* ตาราง */
+#user-table {
+    width: 100%; /* ให้ตารางกว้างเต็มพื้นที่ */
+    border-collapse: collapse; /* ลบช่องว่างระหว่างเส้นขอบ */
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+#user-table th, #user-table td {
+    border: 1px solid #ddd; /* เส้นขอบ */
+    padding: 10px; /* ระยะห่างในเซลล์ */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+}
+
+#user-table th {
+    background-color: #DB468D; /* สีหัวตาราง */
+    color: white;
+    font-weight: bold;
+}
+
+#user-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* แถวสีอ่อน */
+}
+
+#user-table tr:hover {
+    background-color: #f1f1f1; /* สีเมื่อชี้เมาส์ */
+}
+
+/* ปุ่ม */
+button {
+    padding: 10px 15px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #B6922E;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #866b21;
+}
+
